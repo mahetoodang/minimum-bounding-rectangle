@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/mahetoodang/minimum-bounding-rectangle/issues"
   },
-  "homepage": "https://github.com/mahetoodang/minimum-bounding-rectangle#readme"
+  "homepage": "https://github.com/mahetoodang/minimum-bounding-rectangle#readme",
+  "dependencies": {
+    "hull.js": "^1.0.1",
+    "mathjs": "^8.0.1"
+  }
 }
