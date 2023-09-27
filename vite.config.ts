@@ -1,6 +1,7 @@
-import { resolve } from 'path';
-import { defineConfig } from 'vite';
+import {resolve} from 'path';
+import {defineConfig} from 'vite';
 import dts from 'vite-plugin-dts';
+import compression from "vite-plugin-compression2";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +16,12 @@ export default defineConfig({
     plugins: [
         dts({
             insertTypesEntry: true,
+        }),
+        compression({
+            algorithm: 'gzip', exclude: [/\.(br)$ /, /\.(gz)$/]
+        }),
+        compression({
+            algorithm: 'brotliCompress', exclude: [/\.(br)$ /, /\.(gz)$/],
         }),
     ],
 });
