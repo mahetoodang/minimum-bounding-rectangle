@@ -90,6 +90,6 @@ const findMinBoundingRect = (points: Point[]) => {
   return minRect;
 }
 
-export default {
+export {
   findMinBoundingRect
 };
