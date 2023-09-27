@@ -9,7 +9,7 @@ npm install min-bounding-rectangle
 ## Usage
 
 ```javascript
-const findMinBoundingRect = require('min-bounding-rectangle');
+import { findMinBoundingRect } from 'min-bounding-rectangle';
 
 const polygon = [
   [ 19.80727834535795, 8.054097724699727 ],
@@ -20,8 +20,8 @@ const polygon = [
   [ 18.399368159995873, -0.8350973406565108 ],
   [ 19.80727834535795, 8.054097724699727 ]
 ]
-console.log(findMinBoundingRect(polygon));
 
+console.log(findMinBoundingRect(polygon));
 /*
 [ [ 22.054319881502234, 0.21220437083359123 ],
   [ -15.373951326127528, -10.51261376102147 ],
