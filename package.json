@@ -20,10 +20,9 @@
   "dependencies": {
     "hull.js": "^1.0.1",
     "mathjs": "11.11.1",
-    "typescript": "^5.2.2"
-  },
-  "devDependencies": {
+    "typescript": "^5.2.2",
     "@types/hull.js": "^1.0.2",
     "@types/mathjs": "^9.4.2"
-  }
+  },
+  "devDependencies": {}
 }
