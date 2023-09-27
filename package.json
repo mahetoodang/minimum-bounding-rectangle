@@ -1,11 +1,16 @@
 {
   "name": "min-bounding-rectangle",
   "version": "1.0.6",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./dist/minimum-building-rectangle.es.js",
+  "module": "./dist/minimum-building-rectangle.umd.js",
+  "types": "./dist/minimum-building-rectangle.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "start": "tsc && node lib/index.js",
-    "build": "tsc"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "publisher": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
@@ -20,9 +25,12 @@
   "dependencies": {
     "hull.js": "^1.0.1",
     "mathjs": "11.11.1",
-    "typescript": "^5.2.2",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.6.0",
     "@types/hull.js": "^1.0.2",
     "@types/mathjs": "^9.4.2"
-  },
-  "devDependencies": {}
+  }
 }
