@@ -1,14 +1,33 @@
 {
   "compilerOptions": {
-    "lib": ["es2022"],
-    "module": "commonjs",
-    "target": "es2022",
-    "strict": true,
-    "esModuleInterop": true,
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "types": [
+      "vite/client",
+      "node"
+    ],
+    "allowJs": false,
     "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "lib",
-    "declaration": true
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "baseUrl": "./"
   },
-  "include": ["src/**/*"],
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
