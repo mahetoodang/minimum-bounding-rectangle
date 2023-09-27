@@ -91,5 +91,5 @@ const findMinBoundingRect = (points: Point[]) => {
 }
 
 export {
-  findMinBoundingRect
-};
+    findMinBoundingRect
+}

@@ -1,11 +1,11 @@
 {
   "name": "min-bounding-rectangle",
   "version": "1.0.3",
-  "description": "",
-  "main": "src/index.ts",
-  "type": "commonjs",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "start": "tsc && node build/index.js"
+    "start": "tsc && node lib/index.js",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
