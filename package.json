@@ -31,7 +31,6 @@
     "@types/hull.js": "^1.0.2",
     "@types/mathjs": "^9.4.2",
     "vite": "^4.4.9",
-    "vite-plugin-compression2": "^0.10.5",
     "vite-plugin-dts": "^3.6.0"
   }
 }
