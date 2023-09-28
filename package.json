@@ -1,16 +1,16 @@
 {
   "name": "min-bounding-rectangle",
   "version": "1.0.10",
-  "main": "./dist/minimum-building-rectangle.es.js",
-  "module": "./dist/minimum-building-rectangle.umd.js",
-  "types": "./dist/minimum-building-rectangle.d.ts",
+  "main": "./dist/minimum-bounding-rectangle.es.js",
+  "module": "./dist/minimum-bounding-rectangle.umd.js",
+  "types": "./dist/minimum-bounding-rectangle.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "import": "./dist/minimum-building-rectangle.es.js",
-      "require": "./dist/minimum-building-rectangle.umd.cjs"
+      "import": "./dist/minimum-bounding-rectangle.es.js",
+      "require": "./dist/minimum-bounding-rectangle.umd.cjs"
     }
   },
   "scripts": {
@@ -37,6 +37,7 @@
     "@types/hull.js": "^1.0.2",
     "@types/mathjs": "^9.4.2",
     "vite": "^4.4.9",
+    "vite-plugin-compression2": "^0.10.5",
     "vite-plugin-dts": "^3.6.0"
   }
 }
