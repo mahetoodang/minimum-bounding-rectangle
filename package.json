@@ -10,7 +10,7 @@
   "exports": {
     ".": {
       "import": "./dist/minimum-bounding-rectangle.es.js",
-      "require": "./dist/minimum-bounding-rectangle.umd.cjs"
+      "require": "./dist/minimum-bounding-rectangle.umd.js"
     }
   },
   "scripts": {
