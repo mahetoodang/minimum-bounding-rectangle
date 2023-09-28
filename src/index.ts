@@ -1,9 +1,5 @@
 import ConvexHull from 'hull.js';
-import {
-  matrix,
-  transpose,
-  multiply,
-} from './mathUtil';
+import {matrix, multiply, transpose,} from './mathUtil';
 
 type Point = [number, number];
 
@@ -22,14 +18,10 @@ const findRotationsToTry = (hull: number[][]): [number, number][][] => {
           )
       )
   )];
-  const rotations = angles.map((angle): [number, number][] => {
-    return [
-      [ Math.cos(angle), Math.cos(angle - Math.PI/2) ],
-      [ Math.cos(angle + Math.PI/2), Math.cos(angle) ]
-    ]
-  });
-
-  return rotations;
+  return angles.map((angle): [number, number][] => ([
+    [Math.cos(angle), Math.cos(angle - Math.PI / 2)],
+    [Math.cos(angle + Math.PI / 2), Math.cos(angle)]
+  ]));
 }
 
 const findMinBoundingRect = (points: Point[]) => {
@@ -79,15 +71,13 @@ const findMinBoundingRect = (points: Point[]) => {
   const [x2, y2] = [minX[bestIdx], minY[bestIdx]];
   const r = rotations[bestIdx];
 
-  const minRect = [
+  return [
     multiply([x1, y2], r),
     multiply([x2, y2], r),
     multiply([x2, y1], r),
     multiply([x1, y1], r),
     multiply([x1, y2], r),
   ];
-
-  return minRect;
 }
 
 export {
