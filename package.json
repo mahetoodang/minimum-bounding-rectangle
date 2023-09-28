@@ -9,8 +9,8 @@
   ],
   "exports": {
     ".": {
-      "import": "./dist/cityview.es.js",
-      "require": "./dist/cityview.umd.cjs"
+      "import": "./dist/minimum-building-rectangle.es.js",
+      "require": "./dist/minimum-building-rectangle.umd.cjs"
     }
   },
   "scripts": {
