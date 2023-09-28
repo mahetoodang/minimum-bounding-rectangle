@@ -1,6 +1,6 @@
 {
   "name": "min-bounding-rectangle",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "main": "./dist/minimum-building-rectangle.es.js",
   "module": "./dist/minimum-building-rectangle.umd.js",
   "types": "./dist/minimum-building-rectangle.d.ts",
