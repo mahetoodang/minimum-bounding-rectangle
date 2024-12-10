@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/mahetoodang/minimum-bounding-rectangle#readme",
   "dependencies": {
-    "hull.js": "^1.0.1",
+    "hull.js": "andriiheonia/hull#semver:^1.0.10",
     "mathjs": "11.11.1",
     "typescript": "^5.2.2"
   },
