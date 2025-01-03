@@ -1,5 +1,5 @@
 # minimum-bounding-rectangle
-Minimum bounding rectangle implementation in JavaScript. Uses 'hull.js' and 'mathjs' as dependencies.
+Minimum bounding rectangle implementation in JavaScript. Uses 'concaveman' and 'mathjs' as dependencies.
 
 ## Installation
 ```
@@ -11,7 +11,7 @@ npm install min-bounding-rectangle
 ```javascript
 import { findMinBoundingRect } from 'min-bounding-rectangle';
 
-const polygon = [
+const polygon: [number, number][] = [
   [ 19.80727834535795, 8.054097724699727 ],
   [ -2.8950160732760617, 11.649787920277921 ],
   [ -18.479887926072045, 0.32671572570794183 ],
@@ -21,7 +21,8 @@ const polygon = [
   [ 19.80727834535795, 8.054097724699727 ]
 ]
 
-console.log(findMinBoundingRect(polygon));
+const minBoundingRect = findMinBoundingRect(polygon);
+console.log(minBoundingRect);
 /*
 [ [ 22.054319881502234, 0.21220437083359123 ],
   [ -15.373951326127528, -10.51261376102147 ],
