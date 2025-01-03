@@ -1,6 +1,6 @@
 {
   "name": "min-bounding-rectangle",
-  "version": "1.0.12",
+  "version": "1.1.0",
   "main": "./dist/minimum-bounding-rectangle.es.js",
   "module": "./dist/minimum-bounding-rectangle.umd.js",
   "types": "./dist/minimum-bounding-rectangle.d.ts",
@@ -16,7 +16,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "publisher": "npm run build && npm publish"
+    "publisher": "npm run build && npm publish",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -29,13 +30,19 @@
   },
   "homepage": "https://github.com/mahetoodang/minimum-bounding-rectangle#readme",
   "dependencies": {
-    "hull.js": "^1.0.1",
+    "@types/concaveman": "^1.1.6",
+    "concaveman": "^1.2.1",
     "mathjs": "11.11.1",
     "typescript": "^5.2.2"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@types/hull.js": "^1.0.2",
+    "@types/jest": "^29.5.14",
     "@types/mathjs": "^9.4.2",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
     "vite": "^4.4.9",
     "vite-plugin-compression2": "^0.10.5",
     "vite-plugin-dts": "^3.6.0"

@@ -1,4 +1,4 @@
-import ConvexHull from 'hull.js';
+import concaveMan from "concaveman";
 import {matrix, multiply, transpose,} from './mathUtil';
 
 type Point = [number, number];
@@ -26,7 +26,9 @@ const findRotationsToTry = (hull: number[][]): [number, number][][] => {
 
 const findMinBoundingRect = (points: Point[]) => {
   // Convex hull for the points
-  const hullPoints = ConvexHull(points, Infinity) as number[][];
+  // const hullPoints = ConvexHull(points, Infinity) as number[][];
+  // const hullPoints = concaveMan(points, Infinity) as number[][];
+  const hullPoints = concaveMan(points, Infinity);
   // Find the rotations so that for each rotation a single edge is parallel to x-axis
   const rotations = findRotationsToTry(hullPoints);
 
