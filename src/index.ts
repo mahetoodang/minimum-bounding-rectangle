@@ -1,9 +1,9 @@
 import concaveMan from "concaveman";
-import {matrix, multiply, transpose,} from './mathUtil';
+import {matrix, multiply, transpose} from './mathUtil';
 
-type Point = [number, number];
+type XY = [number, number];
 
-const findRotationsToTry = (hull: number[][]): [number, number][][] => {
+const findRotationsToTry = (hull: number[][]): XY[][] => {
   const edges = [];
   for (let i=0; i < hull.length-1; i++) {
     edges.push([
@@ -24,10 +24,8 @@ const findRotationsToTry = (hull: number[][]): [number, number][][] => {
   ]));
 }
 
-const findMinBoundingRect = (points: Point[]) => {
+const findMinBoundingRect = (points: XY[]): XY[] => {
   // Convex hull for the points
-  // const hullPoints = ConvexHull(points, Infinity) as number[][];
-  // const hullPoints = concaveMan(points, Infinity) as number[][];
   const hullPoints = concaveMan(points, Infinity);
   // Find the rotations so that for each rotation a single edge is parallel to x-axis
   const rotations = findRotationsToTry(hullPoints);
@@ -42,13 +40,13 @@ const findMinBoundingRect = (points: Point[]) => {
     ).toArray()
   });
 
-  const minXY = rotPoints.map((pMat): Point => {
+  const minXY = rotPoints.map((pMat): XY => {
     const mat = pMat as number[][];
     const minX = Math.min(...mat[0]);
     const minY = Math.min(...mat[1]);
     return [minX, minY];
   });
-  const maxXY = rotPoints.map((pMat): Point => {
+  const maxXY = rotPoints.map((pMat): XY => {
     const mat = pMat as number[][];
     const minX = Math.max(...mat[0]);
     const minY = Math.max(...mat[1]);
