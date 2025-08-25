@@ -17,7 +17,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vitest run && vite build",
     "build:size": "npm run build && size-limit",
     "publisher": "npm run build && npm publish",
     "test": "vitest",
