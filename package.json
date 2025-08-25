@@ -21,7 +21,8 @@
     "build:size": "npm run build && size-limit",
     "publisher": "npm run build && npm publish",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -53,6 +54,9 @@
     "url": "https://github.com/mahetoodang/min-bounding-rectangle/issues"
   },
   "homepage": "https://github.com/mahetoodang/min-bounding-rectangle#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "concaveman": "^2.0.0",
     "mathjs": "^14.6.0"
