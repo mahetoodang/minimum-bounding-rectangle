@@ -1,21 +1,13 @@
 name: Publish to NPM
 
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to publish (e.g., v1.2.3)'
-        required: true
-        type: string
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       id-token: write
     
     steps:
@@ -38,28 +30,33 @@ jobs:
       - name: Build package
         run: npm run build
         
-      - name: Check if version matches tag
-        if: github.event_name == 'push'
+      - name: Get package version
+        id: package-version
         run: |
-          PACKAGE_VERSION=$(node -p "require('./package.json').version")
-          TAG_VERSION=${GITHUB_REF#refs/tags/v}
-          if [ "$PACKAGE_VERSION" != "$TAG_VERSION" ]; then
-            echo "Package version ($PACKAGE_VERSION) does not match tag version ($TAG_VERSION)"
-            exit 1
-          fi
+          VERSION=$(node -p "require('./package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Publishing version: $VERSION"
           
       - name: Publish to NPM (with provenance)
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           
+      - name: Create Git Tag
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a "v${{ steps.package-version.outputs.VERSION }}" -m "Release v${{ steps.package-version.outputs.VERSION }}"
+          git push origin "v${{ steps.package-version.outputs.VERSION }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Create GitHub Release
-        if: github.event_name == 'push'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: v${{ steps.package-version.outputs.VERSION }}
+          release_name: Release v${{ steps.package-version.outputs.VERSION }}
           draft: false
           prerelease: false
