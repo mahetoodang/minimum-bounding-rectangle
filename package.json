@@ -17,12 +17,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vitest run && vite build",
+    "build": "tsc && vite build",
     "build:size": "npm run build && size-limit",
-    "publisher": "npm run build && npm publish",
+    "publisher": "vitest run && npm run build && npm publish",
     "test": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "prepublishOnly": "npm run build"
+    "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
