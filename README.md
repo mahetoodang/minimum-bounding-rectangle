@@ -1,4 +1,9 @@
 # min-bounding-rectangle
+
+[![npm version](https://img.shields.io/npm/v/min-bounding-rectangle)](https://www.npmjs.com/package/min-bounding-rectangle)
+![npm downloads](https://img.shields.io/npm/dm/min-bounding-rectangle)
+![npm license](https://img.shields.io/npm/l/min-bounding-rectangle)
+
 Minimum bounding rectangle implementation in JavaScript. Uses `concaveman` and `mathjs` as dependencies.
 
 ## Usage
