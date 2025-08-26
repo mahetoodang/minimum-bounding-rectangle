@@ -1,9 +1,8 @@
 {
   "name": "min-bounding-rectangle",
   "version": "1.2.2",
-  "type": "module",
   "main": "dist/min-bounding-rectangle.umd.js",
-  "module": "dist/min-bounding-rectangle.es.js",
+  "module": "dist/min-bounding-rectangle.es.mjs",
   "types": "dist/min-bounding-rectangle.d.ts",
   "files": [
     "dist"
@@ -11,7 +10,7 @@
   "exports": {
     ".": {
       "types": "./dist/min-bounding-rectangle.d.ts",
-      "import": "./dist/min-bounding-rectangle.es.js",
+      "import": "./dist/min-bounding-rectangle.es.mjs",
       "require": "./dist/min-bounding-rectangle.umd.js"
     }
   },
@@ -76,7 +75,7 @@
   "size-limit": [
     {
       "name": "ESM Bundle",
-      "path": "dist/min-bounding-rectangle.es.js",
+      "path": "dist/min-bounding-rectangle.es.mjs",
       "limit": "60 KB",
       "gzip": true
     },

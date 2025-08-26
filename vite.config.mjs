@@ -12,7 +12,8 @@ export default defineConfig({
 		lib: {
 			entry: resolve(__dirname, 'src/index.ts'),
 			name: 'min-bounding-rectangle',
-			fileName: (format) => `min-bounding-rectangle.${format}.js`,
+			fileName: (format) =>
+				format === 'es' ? `min-bounding-rectangle.${format}.mjs` : `min-bounding-rectangle.${format}.js`,
 			formats: ['es', 'umd'],
 		},
 	},
