@@ -1,7 +1,8 @@
-name: Publish to NPM
+name: Publish Package to NPM
 
 on:
-  workflow_dispatch:
+  release:
+    types: [ published ]
 
 jobs:
   publish:
@@ -17,9 +18,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
-          cache: 'npm'
           
       - name: Install dependencies
         run: npm ci
@@ -29,34 +29,8 @@ jobs:
         
       - name: Build package
         run: npm run build
-        
-      - name: Get package version
-        id: package-version
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
-          echo "Publishing version: $VERSION"
-          
-      - name: Publish to NPM (with provenance)
+
+      - name: Publish to NPM
         run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          
-      - name: Create Git Tag
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git tag -a "v${{ steps.package-version.outputs.VERSION }}" -m "Release v${{ steps.package-version.outputs.VERSION }}"
-          git push origin "v${{ steps.package-version.outputs.VERSION }}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Create GitHub Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ steps.package-version.outputs.VERSION }}
-          release_name: Release v${{ steps.package-version.outputs.VERSION }}
-          draft: false
-          prerelease: false
