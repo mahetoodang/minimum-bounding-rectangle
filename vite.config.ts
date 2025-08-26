@@ -19,6 +19,7 @@ export default defineConfig({
 	plugins: [
 		dts({
 			insertTypesEntry: true,
+			exclude: ['**/*.test.ts', '**/*.spec.ts'],
 		}),
 		compression({
 			algorithms: ['gzip', 'brotliCompress'],
